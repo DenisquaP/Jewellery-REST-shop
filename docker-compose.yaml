@@ -1,0 +1,31 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - db_postgres:/var/lib/postgresql/data/
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - '5432:5432'
+    networks:
+      - jewellery
+
+  app:
+    build: .
+    depends_on:
+      - postgres
+    restart: always
+    ports:
+      - "8000:8000"
+    networks:
+      - jewellery
+
+networks:
+  jewellery:
+
+volumes:
+  db_postgres:
