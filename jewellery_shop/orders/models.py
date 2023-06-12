@@ -1,6 +1,6 @@
 from django.db import models
-from customers.models import Customer
-from items.apps import ItemsConfig
+# from customers.models import Customer
+# from items.models import Item
 
 
 # Create your models here.
@@ -10,10 +10,12 @@ class Order(models.Model):
     is_ready = models.BooleanField(verbose_name='is_ready', blank=False)
 
     customer = models.ForeignKey(
-        Customer, on_delete=models.CASCADE, blank=False
+        'customers.Customer', on_delete=models.CASCADE, blank=False,
+        related_name='customer'
         )
     items = models.ForeignKey(
-        ItemsConfig, on_delete=models.CASCADE
+        'items.Item', on_delete=models.CASCADE, blank=False,
+        related_name='items'
     )
 
     def __str__(self) -> str:

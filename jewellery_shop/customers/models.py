@@ -1,5 +1,5 @@
 from django.db import models
-from orders.models import Order
+# from orders.models import Order
 
 
 # Create your models here.
@@ -9,7 +9,10 @@ class Customer(models.Model):
     adress = models.CharField(verbose_name='adress', blank=False)
     phone_number = models.CharField(verbose_name='phone_number', blank=False)
 
-    orders = models.ForeignKey(Order, on_delete=models.CASCADE, blank=True)
+    orders = models.ForeignKey(
+        'orders.Order', on_delete=models.CASCADE, blank=True,
+        default='None', related_name='orders'
+        )
 
     def __str__(self) -> str:
         return f'{self.name} {self.surname}'
