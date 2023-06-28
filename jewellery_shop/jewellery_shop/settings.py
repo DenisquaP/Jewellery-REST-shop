@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'customers.apps.CustomersConfig',
     'items.apps.ItemsConfig',
     'orders.apps.OrdersConfig',
+    'djangorestframework',
 ]
 
 MIDDLEWARE = [
