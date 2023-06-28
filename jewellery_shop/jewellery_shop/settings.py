@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,7 +41,6 @@ INSTALLED_APPS = [
     'customers.apps.CustomersConfig',
     'items.apps.ItemsConfig',
     'orders.apps.OrdersConfig',
-    'djangorestframework',
 ]
 
 MIDDLEWARE = [

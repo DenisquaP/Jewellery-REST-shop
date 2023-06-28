@@ -1,7 +1,10 @@
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from rest_framework.viewsets import ModelViewSet
+from customers.models import Customer
+from customers.serializers.customer_serializer import CustomerSerializer
+# from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 
-class Customer(APIView):
-    def get(self, request):
-        return Response()
+class CustomerViewSet(ModelViewSet):
+    queryset = Customer.objects.all()
+    serializer_class = CustomerSerializer
+    # permission_classes = [IsAuthenticatedOrReadOnly]
