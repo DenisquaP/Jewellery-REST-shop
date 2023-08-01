@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from items.serializers.serializer import ItemSerializer
+from items.serializers.item_serializer import ItemSerializer
 from items.models import Item
 
 

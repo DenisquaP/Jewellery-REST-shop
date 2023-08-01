@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('customers.urls')),  # noqa 501 prefix in viewset router in app urls
     path('', include('items.urls')),
+    path('', include('orders.urls'))
 ]
